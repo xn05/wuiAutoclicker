@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Window
+    x:Class="Autoclicker.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Title="Autoclicker">
+
+    <Window.SystemBackdrop>
+        <MicaBackdrop />
+    </Window.SystemBackdrop>
+
+    <Grid RowDefinitions="Auto,*" KeyDown="Grid_KeyDown">
+        <!-- Custom Title Bar -->
+        <Grid x:Name="AppTitleBar" 
+              Height="32" 
+              Padding="12,0,0,0">
+            <TextBlock x:Name="AppTitle" 
+                       Text="Autoclicker (Stopped)"
+                       VerticalAlignment="Center"
+                       Foreground="{ThemeResource TextFillColorPrimaryBrush}"
+                       Style="{StaticResource CaptionTextBlockStyle}" />
+        </Grid>
+
+        <!-- Main Content -->
+        <Grid Grid.Row="1">
+            <StackPanel Margin="12,0,0,0" Spacing="16">
+                <TextBlock 
+                    Text="Autoclicker"
+                    FontSize="28"
+                    FontWeight="SemiBold"
+                    FontFamily="Segoe UI Variable"
+                    Foreground="{ThemeResource TextFillColorPrimaryBrush}" />
+
+                <!-- Split Layout -->
+                <Grid ColumnDefinitions="*,*" Margin="0,0,0,0">
+                    <!-- Left Side -->
+                    <StackPanel Spacing="8">
+                        <TextBox x:Name="CPSInput" Header="Enter CPS:" PlaceholderText="CPS" Width="120" HorizontalAlignment="Left" InputScope="Number" />
+                        <ComboBox x:Name="ClickLocationCombo" Header="Click location:" PlaceholderText="Select" Width="120" SelectionChanged="ClickLocationCombo_SelectionChanged">
+                            <x:String>Cursor</x:String>
+                            <x:String>Specific</x:String>
+                        </ComboBox>
+                        <NumberBox x:Name="XInput" PlaceholderText="X" Width="120" HorizontalAlignment="Left" Visibility="Collapsed" />
+                        <NumberBox x:Name="YInput" PlaceholderText="Y" Width="120" HorizontalAlignment="Left" Visibility="Collapsed" />
+                    </StackPanel>
+
+                    <!-- Right Side -->
+                    <StackPanel Grid.Column="1" Spacing="8" >
+                        <ComboBox x:Name="ClickTypeCombo" Header="Click type:" PlaceholderText="Select" Width="120">
+                            <x:String>Left Click</x:String>
+                            <x:String>Right Click</x:String>
+                            <x:String>Middle Click</x:String>
+                        </ComboBox>
+                        <TextBlock Text="Trigger hotkey:" />
+                        <StackPanel Orientation="Horizontal" Spacing="8">
+                            <Button x:Name="RecordButton" Content="Record" Margin="0,0,0,0" Click="RecordButton_Click" />
+                            <TextBlock x:Name="HotkeyDisplay" Text="(None)" VerticalAlignment="Center" Foreground="{ThemeResource TextFillColorSecondaryBrush}" />
+                        </StackPanel>
+                        <TextBlock Text="Settings:" />
+                        <CheckBox x:Name="ShowOnTopCheckBox" Content="Show on top" Margin="0,-6,0,0" Checked="ShowOnTopCheckBox_Checked" Unchecked="ShowOnTopCheckBox_Unchecked" />
+                        <StackPanel Orientation="Horizontal" Spacing="8">
+                            <Button x:Name="StartButton" Style="{StaticResource AccentButtonStyle}" Content="Start" Click="StartButton_Click" />
+                            <Button x:Name="StopButton" Content="Stop" Click="StopButton_Click" IsEnabled="False" />
+                        </StackPanel>
+                    </StackPanel>
+                </Grid>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Window>
