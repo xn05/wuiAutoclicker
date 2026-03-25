@@ -10,8 +10,8 @@
 
   <Identity
     Name="821d8f5b-422a-4835-a6e8-3283b1a638d5"
-    Publisher="CN=Sartaj Singh"
-    Version="1.0.0.0" />
+    Publisher="CN=Noc"
+    Version="1.0.1.0" />
 
   <mp:PhoneIdentity PhoneProductId="821d8f5b-422a-4835-a6e8-3283b1a638d5" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
 

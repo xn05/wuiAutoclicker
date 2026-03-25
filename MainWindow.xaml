@@ -35,18 +35,18 @@
                 <Grid ColumnDefinitions="*,*" Margin="0,0,0,0">
                     <!-- Left Side -->
                     <StackPanel Spacing="8">
-                        <TextBox x:Name="CPSInput" Header="Enter CPS:" PlaceholderText="CPS" Width="120" HorizontalAlignment="Left" InputScope="Number" />
+                        <TextBox x:Name="CPSInput" Header="Enter CPS:" PlaceholderText="CPS" Width="120" HorizontalAlignment="Left" InputScope="Number" TextChanged="CPSInput_TextChanged" />
                         <ComboBox x:Name="ClickLocationCombo" Header="Click location:" PlaceholderText="Select" Width="120" SelectionChanged="ClickLocationCombo_SelectionChanged">
                             <x:String>Cursor</x:String>
                             <x:String>Specific</x:String>
                         </ComboBox>
-                        <NumberBox x:Name="XInput" PlaceholderText="X" Width="120" HorizontalAlignment="Left" Visibility="Collapsed" />
-                        <NumberBox x:Name="YInput" PlaceholderText="Y" Width="120" HorizontalAlignment="Left" Visibility="Collapsed" />
+                        <NumberBox x:Name="XInput" PlaceholderText="X" Width="120" HorizontalAlignment="Left" Visibility="Collapsed" ValueChanged="XInput_ValueChanged" />
+                        <NumberBox x:Name="YInput" PlaceholderText="Y" Width="120" HorizontalAlignment="Left" Visibility="Collapsed" ValueChanged="YInput_ValueChanged" />
                     </StackPanel>
 
                     <!-- Right Side -->
                     <StackPanel Grid.Column="1" Spacing="8" >
-                        <ComboBox x:Name="ClickTypeCombo" Header="Click type:" PlaceholderText="Select" Width="120">
+                        <ComboBox x:Name="ClickTypeCombo" Header="Click type:" PlaceholderText="Select" Width="120" SelectionChanged="ClickTypeCombo_SelectionChanged">
                             <x:String>Left Click</x:String>
                             <x:String>Right Click</x:String>
                             <x:String>Middle Click</x:String>

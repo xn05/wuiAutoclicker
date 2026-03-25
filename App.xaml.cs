@@ -44,7 +44,17 @@ namespace Autoclicker
         protected override void OnLaunched(Microsoft.UI.Xaml.LaunchActivatedEventArgs args)
         {
             _window = new MainWindow();
+            _window.Closed += Window_Closed;
             _window.Activate();
+        }
+
+        private void Window_Closed(object sender, WindowEventArgs args)
+        {
+            // Ensure config is saved on app close
+            if (sender is MainWindow mainWindow)
+            {
+                mainWindow.OnWindowClosing();
+            }
         }
     }
 }
